@@ -1,0 +1,25 @@
+[debug] [2023-07-17T08:47:07.877Z] ----------------------------------------------------------------------
+[debug] [2023-07-17T08:47:07.879Z] Command:       C:\Program Files\nodejs\node.exe C:\Users\mrtma\AppData\Roaming\npm\node_modules\firebase-tools\lib\bin\firebase.js init
+[debug] [2023-07-17T08:47:07.880Z] CLI Version:   12.4.2
+[debug] [2023-07-17T08:47:07.880Z] Platform:      win32
+[debug] [2023-07-17T08:47:07.880Z] Node Version:  v18.16.1
+[debug] [2023-07-17T08:47:07.881Z] Time:          Mon Jul 17 2023 11:47:07 GMT+0300 (Rytų Europos vasaros laikas)
+[debug] [2023-07-17T08:47:07.881Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2023-07-17T08:47:07.948Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2023-07-17T08:47:07.948Z] > authorizing via signed-in user (martynascepauskas@gmail.com)
+[info] 
+     ######## #### ########  ######## ########     ###     ######  ########
+     ##        ##  ##     ## ##       ##     ##  ##   ##  ##       ##
+     ######    ##  ########  ######   ########  #########  ######  ######
+     ##        ##  ##    ##  ##       ##     ## ##     ##       ## ##
+     ##       #### ##     ## ######## ########  ##     ##  ######  ########
+
+You're about to initialize a Firebase project in this directory:
+
+  C:\Users\mrtma\source\repos\ToysTrader\toystrader
+
+Before we get started, keep in mind:
+
+  * You are initializing within an existing Firebase project directory
+
