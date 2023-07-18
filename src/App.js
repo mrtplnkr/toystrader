@@ -1,7 +1,7 @@
 import logo from './logo.svg';
 import './App.css';
 import Auth from './components/auth';
-import { db, auth, storage } from "./firebase-config";
+import { auth } from "./firebase-config";
 
 function App() {
 

@@ -2,7 +2,6 @@
 
 import { auth, googleProvider, facebookProvider } from "../firebase-config";
 import { signInWithPopup } from "firebase/auth";
-import { useEffect, useState } from "react";
 
 function Auth() {
 
