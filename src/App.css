@@ -7,6 +7,35 @@
   pointer-events: none;
 }
 
+.menu {
+  align-self: self-end;
+  padding: 1em;
+  display: flex;
+  flex-direction: column;
+}
+
+.menu img {
+  border-radius: 50%;
+  align-self: flex-end;
+  width: 2em;
+  padding: 0.5em 0;
+  cursor: pointer;
+}
+
+.menu ul {
+  font-size: 0.5em;
+  list-style-type: none; /* Remove bullets */
+  padding: 0.5em; /* Remove padding */
+  margin: 0; /* Remove margins */
+  text-align: right;
+  border: 1px solid #0ff;
+}
+
+.menu ul li:last-child {
+  text-decoration: underline;
+  cursor: pointer;
+}
+
 @media (prefers-reduced-motion: no-preference) {
   .App-logo {
     animation: App-logo-spin infinite 20s linear;
