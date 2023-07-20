@@ -7,14 +7,14 @@ import {
   Routes,
   Route,
   Link,
-  useNavigate,
   useLocation,
   Navigate,
   Outlet,
 } from "react-router-dom";
 import './App.css';
 import Auth from './components/auth';
-import { fakeAuthProvider } from "./authProvider";
+import { AuthProvider } from "./authProvider";
+import { useAuth } from "./authProvider";
 
 function App() {
 
@@ -43,35 +43,6 @@ function App() {
     </div>
   );
 }
-
-let AuthContext = React.createContext(undefined);
-
-function useAuth() {
-  return React.useContext(AuthContext);
-}
-
-function AuthProvider({ children }) {
-  let [user, setUser] = React.useState(null);
-
-  let signin = (newUser, callback) => {
-    return fakeAuthProvider.signin(() => {
-      setUser(newUser);
-      callback();
-    });
-  };
-
-  let signout = (callback) => {
-    return fakeAuthProvider.signout(() => {
-      setUser(null);
-      callback();
-    });
-  };
-
-  let value = { user, signin, signout };
-
-  return <AuthContext.Provider value={value}>{children}</AuthContext.Provider>;
-}
-
 
 function RequireAuth({ children }) {
   let auth = useAuth();
