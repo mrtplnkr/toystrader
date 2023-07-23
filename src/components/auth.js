@@ -10,26 +10,6 @@ function Auth() {
 
   const [menu, openMenu] = useState(false);
 
-  const signInWithGoogle = async () => {
-    try {
-      setLoading(true);
-      await signGoogle();
-      setLoading(false);
-    } catch (err) {
-      console.error('google error', err);
-    }
-  };
-
-  // const signInWithFacebook = async () => {
-  //   try {
-  //     await signInWithPopup(auth, facebookProvider)
-  //       .then((res) => console.log('facebook authprovider', res))
-  //       .catch((err) => console.log('facebook newschool error', err));
-  //   } catch (err) {
-  //     console.error('facebook oldschool error', err);
-  //   }
-  // };
-
   const logOfCallback = () => {
     alert('I logged out!')
   };
