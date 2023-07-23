@@ -15,9 +15,21 @@ import './App.css';
 import Auth from './components/auth';
 import { AuthProvider } from "./authProvider";
 import { useAuth } from "./authProvider";
+import AddNew from "./components/addNew";
 
 function App() {
 
+  function RequireAuth({ children }) {
+    let auth = useAuth();
+    let location = useLocation();
+  
+    if (!auth.user) {
+      return <Navigate to="/login" state={{ from: location }} replace />;
+    }
+  
+    return children;
+  }
+  
   return (
     <div className="App">
       <header className="App-header">
@@ -35,6 +47,14 @@ function App() {
                     </RequireAuth>
                   }
                 />
+                <Route
+                  path="/addNew"
+                  element={
+                    <RequireAuth>
+                      <AddNew />
+                    </RequireAuth>
+                  }
+                />
               </Route>
             </Routes>
           </BrowserRouter>
@@ -44,23 +64,12 @@ function App() {
   );
 }
 
-function RequireAuth({ children }) {
-  let auth = useAuth();
-  let location = useLocation();
-
-  if (!auth.user) {
-    return <Navigate to="/login" state={{ from: location }} replace />;
-  }
-
-  return children;
-}
-
 function Layout() {
   return (
     <div>
       <Auth />
 
-      <ul>
+      <ul className="navigation">
         <li>
           <Link to="/">Public Page</Link>
         </li>

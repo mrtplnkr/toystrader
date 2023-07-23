@@ -1,37 +1,34 @@
+import { useNavigate } from "react-router-dom";
 
 function ListPage() {
+    let navigate = useNavigate();
     return (
       <>
-        <h1>List page</h1>
+        <h3>All toys in your area</h3>
 
-        <li
-          className="App-link"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Many toys
-        </li>
-        <li
-          className="App-link"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Many toys
-        </li>
-        <li
-          className="App-link"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Many toys
-        </li>
-        <li
-          className="App-link"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Many toys
-        </li>
+        <div style={{display: 'flex', flexDirection: 'column'}}>
+          <button style={{alignSelf: 'flex-end'}} onClick={() => navigate('/addNew')}>add your toy</button>
+        </div>
+
+        <ul id="toyList">
+          <li
+          >
+            Many toys
+          </li>
+          <li
+          >
+            Many toys
+          </li>
+          <li
+          >
+            Many toys
+          </li>
+          <li
+          >
+            Many toys
+          </li>
+        </ul>
+
       </>
     );
 }

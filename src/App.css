@@ -9,7 +9,6 @@
 
 .menu {
   align-self: self-end;
-  padding: 1em;
   display: flex;
   flex-direction: column;
 }
@@ -29,6 +28,20 @@
   margin: 0; /* Remove margins */
   text-align: right;
   border: 1px solid #0ff;
+}
+
+.navigation {
+  font-size: 0.5em;
+  list-style-type: none;
+  display: flex;
+  flex-direction: row; 
+  justify-content: space-between;
+  padding: 0;
+}
+
+.navigation li a {
+  color: #0ff;
+  font-size: 1.2em;
 }
 
 .menu ul li:last-child {
@@ -64,4 +77,13 @@
   to {
     transform: rotate(360deg);
   }
+}
+
+#toyList {
+  display: flex;
+}
+
+#toyList li {
+  padding: 0.5em;
+  list-style-type: none;
 }
