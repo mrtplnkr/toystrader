@@ -1,5 +1,6 @@
 .App {
   text-align: center;
+  background-color: #282c34;
 }
 
 .App-logo {
@@ -56,7 +57,7 @@
 }
 
 .App-header {
-  background-color: #282c34;
+
   min-height: 100vh;
   display: flex;
   flex-direction: column;
@@ -79,14 +80,11 @@
   }
 }
 
-#toyList {
-  display: flex;
-}
-
 #toyList li {
   max-height: 5em;
   padding: 0.5em;
   list-style-type: none;
   display: flex;
   flex-direction: column;
+  align-items: center;
 }
