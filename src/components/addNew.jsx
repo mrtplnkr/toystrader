@@ -3,11 +3,13 @@ import { useState } from "react";
 import { db, auth, storage } from "../firebase-config";
 import { ref, uploadBytes } from "firebase/storage";
 import { addDoc, collection } from "firebase/firestore";
+import { useNavigate } from "react-router-dom";
 
 function AddNew() {
     const [title, setTitle] = useState(String.empty);
     const [fileUploadName, setFileUpload] = useState(null);
     const toyCollectionRef = collection(db, "toys");
+    const navigate = useNavigate();
 
     const uploadFile = async (file) => {
         if (!file) return;
@@ -27,17 +29,11 @@ function AddNew() {
                 file: fileUploadName,
                 userId: auth?.currentUser?.uid,
             });
+            navigate('/list');
         } catch (err) {
             console.error(err);
         }
     };
-
-    // const fr = new FileReader();
-
-    // fr.onload = (e) => {
-    //     const { result } = e.target;
-    //     setFileUpload(result);
-    // }
 
     return (
       <>

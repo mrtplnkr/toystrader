@@ -84,6 +84,9 @@
 }
 
 #toyList li {
+  max-height: 5em;
   padding: 0.5em;
   list-style-type: none;
+  display: flex;
+  flex-direction: column;
 }

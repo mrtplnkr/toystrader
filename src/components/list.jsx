@@ -40,24 +40,14 @@ function ListPage() {
         </div>
 
         <ul id="toyList">
-          <li
-          >
-            Many toys
-          </li>
-          <li
-          >
-            Many toys
-          </li>
-          <li
-          >
-            Many toys
-          </li>
-          <li
-          >
-            Many toys
-          </li>
+          {toyList.map((x) => {
+            return (<li
+              >
+                <img style={{width: '5em'}} alt={x.title} src={`https://firebasestorage.googleapis.com/v0/b/toystrader-a494f.appspot.com/o/projectFiles%2F${x.file}?alt=media`} />
+                <span>{x.title}</span>
+              </li>)
+          })}
         </ul>
-
       </>
     );
 }
