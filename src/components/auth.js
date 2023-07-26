@@ -4,9 +4,9 @@ import { useAuth } from "../authProvider";
 
 function Auth() {
 
-  const { user, signGoogle, logOf } = useAuth();
+  const { user, logOf } = useAuth();
 
-  const [loading, setLoading] = useState(false);
+  const [loading] = useState(false);
 
   const [menu, openMenu] = useState(false);
 
@@ -25,7 +25,7 @@ function Auth() {
               user && user.displayName &&
               <>
                 <img alt={user.displayName} src={user.photoURL} onClick={() => openMenu(s => !s)} />
-                {menu && <ul id="menu">
+                {menu && <ul>
                   <li onClick={(() => alert('click!'))}>{user.displayName}</li>
                   <li onClick={(() => logOf(logOfCallback))}>Sign out</li>
                 </ul>}

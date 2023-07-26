@@ -24,6 +24,7 @@
 }
 
 .menu ul {
+  color: white;
   font-size: 0.5em;
   list-style-type: none; /* Remove bullets */
   padding: 0.5em; /* Remove padding */
@@ -79,14 +80,30 @@
   }
 }
 
+#toyList {
+  padding: 0;
+}
+
 #toyList li {
-  max-height: 5em;
   padding: 0.5em;
   list-style-type: none;
   display: flex;
   flex-direction: column;
   align-items: center;
   color: white;
+}
+
+#toyList button {
+  align-self: flex-end;
+}
+
+#toyList li {
+  border: 1px solid orange;
+}
+
+#toyList li img {
+  max-width: 90%;
+  padding: 0.5em 0;
 }
 
 h1 {

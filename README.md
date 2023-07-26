@@ -1,5 +1,13 @@
 site for kids to trade their old toys
 
+learn to promote your toys
+
+learn the power of sharing by doing it !
+
+learn to fix maybe ?
+
+collaborate
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).

@@ -1,23 +1,51 @@
-import { collection, getDocs } from "firebase/firestore";
+import { collection, 
+  getDocs, deleteDoc,
+  doc, } from "firebase/firestore";
 import { useState } from "react";
 import { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
+import { useAuth } from "../authProvider";
 import { db } from "../firebase-config";
+import Item from "./item";
 
 function ListPage() {
-    let navigate = useNavigate();
+  let navigate = useNavigate();
+  const { user } = useAuth();
 
-    const [toyList, setToyList] = useState([]);
+  console.log('user id', user);
 
-    const moviesCollectionRef = collection(db, "toys");
+  const [toyList, setToyList] = useState([]);
 
-    useEffect(() => {
-      getMovieList();
-    }, []);
-    
-  const getMovieList = async () => {
+  const toysCollectionRef = collection(db, "toys");
+
+  useEffect(() => {
+    getToyList();
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
+
+  const [myWishedItems, setMyWishedItems] = useState(localStorage.getItem("wishListItems") ?? []);
+
+  useEffect(() => {
+    localStorage.setItem("'wishListItems", JSON.stringify(myWishedItems))
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [myWishedItems?.length])
+
+  const addRemoveWish = (newItem) => {
+      if (myWishedItems && myWishedItems.filter(x => x.id === newItem.id).length) {
+        setMyWishedItems(myWishedItems.filter(x => x.id !== newItem.id));
+      } else {
+        setMyWishedItems(myWishedItems.concat([newItem]));
+      }
+  }
+
+  const deleteItem = async (id) => {
+    const movieDoc = doc(db, "toys", id);
+    await deleteDoc(movieDoc);
+  }
+  
+  const getToyList = async () => {
     try {
-      const data = await getDocs(moviesCollectionRef);
+      const data = await getDocs(toysCollectionRef);
       const filteredData = data.docs.map((doc) => ({
         ...doc.data(),
         id: doc.id,
@@ -28,28 +56,26 @@ function ListPage() {
     }
   };
 
-  console.log('toyList', toyList);
+  return (
+    <>
+      <h3>All toys in your area</h3>
 
-    return (
-      <>
-        <h3>All toys in your area</h3>
+      <div style={{display: 'flex', flexDirection: 'column'}}>
+        <button style={{alignSelf: 'flex-end'}} onClick={() => navigate('/addNew')}>add your toy</button>
+        <button style={{alignSelf: 'flex-start'}} onClick={() => getToyList()}>refresh</button>
+      </div>
 
-        <div style={{display: 'flex', flexDirection: 'column'}}>
-          <button style={{alignSelf: 'flex-end'}} onClick={() => navigate('/addNew')}>add your toy</button>
-          <button style={{alignSelf: 'flex-start'}} onClick={() => getMovieList()}>refresh</button>
-        </div>
-
-        <ul id="toyList">
-          {toyList.map((x) => {
-            return (<li
-              >
-                <img style={{width: '5em'}} alt={x.title} src={`https://firebasestorage.googleapis.com/v0/b/toystrader-a494f.appspot.com/o/projectFiles%2F${x.file}?alt=media`} />
-                <span>{x.title}</span>
-              </li>)
-          })}
-        </ul>
-      </>
-    );
+      <ul id="toyList">
+        {toyList.map((x) => {
+          return (
+            <Item key={x.id} {...x} 
+              isOwned={x.userId === user.id} deleteItem={deleteItem} 
+              wished={myWishedItems.filter(w => w.id === x.id).length} addRemoveWish={addRemoveWish}>
+            </Item>)
+        })}
+      </ul>
+    </>
+  );
 }
 
 export default ListPage;

@@ -11,8 +11,7 @@ function AuthProvider({ children }) {
     useEffect(() => {
       fakeAuthProvider.checkStatus().onAuthStateChanged(async (res) => {
         if (res) {
-            setUser({ displayName: res.displayName, photoURL: res.photoURL });
-            // navigate('/list');
+            setUser({ displayName: res.displayName, id: res.uid, photoURL: res.photoURL });
         };
       });
     }, []);
