@@ -25,13 +25,21 @@ function AuthProvider({ children }) {
       return;
     };
   
+    let signFacebook = async (callback) => {
+      await fakeAuthProvider.facebookSign((user) => {
+        setUser(user);
+      });
+      callback();
+      return;
+    };
+  
     let logOf = () => {
       return fakeAuthProvider.logOff().then(() => {
         setUser(null);
       });
     };
   
-    let value = { user, signGoogle, logOf };
+    let value = { user, signGoogle, signFacebook, logOf };
   
     return <AuthContext.Provider value={value}>{children}</AuthContext.Provider>;
 };

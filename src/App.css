@@ -1,6 +1,7 @@
 .App {
   text-align: center;
   background-color: #282c34;
+  margin: 1em;
 }
 
 .App-logo {
@@ -42,7 +43,7 @@
 
 .navigation li a {
   color: #0ff;
-  font-size: 1.2em;
+  font-size: 1.5em;
 }
 
 .menu ul li:last-child {
@@ -57,8 +58,6 @@
 }
 
 .App-header {
-
-  min-height: 100vh;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -87,4 +86,41 @@
   display: flex;
   flex-direction: column;
   align-items: center;
+  color: white;
+}
+
+h1 {
+  color: green;
+}
+
+h2 {
+  color: brown;
+}
+
+h3 {
+  color: #fdd100;
+}
+
+#intro { background: grey; max-width: 360px; margin: 100px auto 16px; padding: 32px 24px; border-radius: 3px; }
+#intro h2 { font-weight: bold; margin: 0 0 8px; }
+#intro h1 { font-size: 22px; font-weight: 300; color: rgba(0,0,0,0.6); margin: 0 0 16px;}
+#intro p { line-height: 140%; margin: 16px 0 24px; font-size: 14px; }
+#intro a { display: block; text-align: center; background: #039be5; text-transform: uppercase; text-decoration: none; color: white; padding: 16px; border-radius: 4px; }
+#intro, #intro a { box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24); }
+#load { color: rgba(0,0,0,0.4); text-align: center; font-size: 13px; }
+@media (max-width: 600px) {
+  body, #intro { margin-top: 0; box-shadow: none; }
+  #intro { border-top: 16px solid #ffa100; }
+}
+
+#parentIntro { background: grey; max-width: 360px; margin: 100px auto 16px; padding: 32px 24px; border-radius: 3px; }
+#parentIntro h2 { color: #ffa100; font-weight: bold; font-size: 16px; margin: 0 0 8px; }
+#parentIntro h1 { font-size: 22px; font-weight: 300; color: rgba(0,0,0,0.6); margin: 0 0 16px;}
+#parentIntro p { line-height: 140%; font-size: 14px; }
+#parentIntro a { display: block; text-align: center; background: #039be5; text-transform: uppercase; text-decoration: none; color: white; padding: 16px; border-radius: 4px; }
+#parentIntro, #parentIntro a { box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24); }
+#load { color: rgba(0,0,0,0.4); text-align: center; font-size: 13px; }
+@media (max-width: 600px) {
+  body, #parentIntro { margin-top: 0; box-shadow: none; }
+  #parentIntro { border-top: 16px solid brown; }
 }
