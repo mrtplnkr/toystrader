@@ -12,8 +12,6 @@ function ListPage() {
   let navigate = useNavigate();
   const { user } = useAuth();
 
-  console.log('user id', user);
-
   const [toyList, setToyList] = useState([]);
 
   const toysCollectionRef = collection(db, "toys");
@@ -28,7 +26,7 @@ function ListPage() {
   useEffect(() => {
     localStorage.setItem("'wishListItems", JSON.stringify(myWishedItems))
   // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [myWishedItems?.length])
+  }, [myWishedItems?.length]);
 
   const addRemoveWish = (newItem) => {
       if (myWishedItems && myWishedItems.filter(x => x.id === newItem.id).length) {

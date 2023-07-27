@@ -4,6 +4,7 @@ import { db, auth, storage } from "../firebase-config";
 import { ref, uploadBytes } from "firebase/storage";
 import { addDoc, collection } from "firebase/firestore";
 import { useNavigate } from "react-router-dom";
+import { v4 } from 'uuid';
 
 function AddNew() {
     const [title, setTitle] = useState(String.empty);
@@ -13,8 +14,9 @@ function AddNew() {
 
     const uploadFile = async (file) => {
         if (!file) return;
-        setFileUpload(file.name);
-        const filesFolderRef = ref(storage, `projectFiles/${file.name}`);
+        const fileName = v4();
+        setFileUpload(fileName);
+        const filesFolderRef = ref(storage, `projectFiles/${fileName}`);
         try {
           await uploadBytes(filesFolderRef, file);
         } catch (err) {
