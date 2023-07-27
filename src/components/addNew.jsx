@@ -13,10 +13,10 @@ function AddNew() {
 
     const uploadFile = async (file) => {
         if (!file) return;
+        setFileUpload(file.name);
         const filesFolderRef = ref(storage, `projectFiles/${file.name}`);
         try {
           await uploadBytes(filesFolderRef, file);
-          setFileUpload(file.name)
         } catch (err) {
           console.error(err);
         }

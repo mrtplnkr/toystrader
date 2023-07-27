@@ -42,7 +42,7 @@ function ListPage() {
     const movieDoc = doc(db, "toys", id);
     await deleteDoc(movieDoc);
     getToyList();
-  }
+  };
   
   const getToyList = async () => {
     try {
