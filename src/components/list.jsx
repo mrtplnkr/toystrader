@@ -41,6 +41,7 @@ function ListPage() {
   const deleteItem = async (id) => {
     const movieDoc = doc(db, "toys", id);
     await deleteDoc(movieDoc);
+    getToyList();
   }
   
   const getToyList = async () => {
