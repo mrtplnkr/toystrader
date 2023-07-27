@@ -102,7 +102,8 @@
 }
 
 #toyList li img {
-  max-width: 90%;
+  width: 90%;
+  max-width: 30em;
   padding: 0.5em 0;
 }
 
