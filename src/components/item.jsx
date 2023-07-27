@@ -13,6 +13,7 @@ function Item(props) {
                 <button style={{ alignSelf: 'center' }} onClick={() => props.addRemoveWish(props)}>
                     {props.wished ? 'wished' : 'wish'}</button>
             </div>
+            <span style={{flex: 1}}>{props.userId}</span>
         </li>
     );
 }

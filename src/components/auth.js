@@ -26,6 +26,7 @@ function Auth() {
               <>
                 <img alt={user.displayName} src={user.photoURL} onClick={() => openMenu(s => !s)} />
                 {menu && <ul>
+                  <li>{user.id}</li>
                   <li onClick={(() => alert('click!'))}>{user.displayName}</li>
                   <li onClick={(() => logOf(logOfCallback))}>Sign out</li>
                 </ul>}
