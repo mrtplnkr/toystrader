@@ -1,6 +1,7 @@
 import { collection, 
   getDocs, deleteDoc,
-  doc, } from "firebase/firestore";
+  doc,
+  query, } from "firebase/firestore";
 import { useState } from "react";
 import { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
@@ -45,7 +46,10 @@ function ListPage() {
   const getToyList = async () => {
     try {
       const data = await getDocs(toysCollectionRef);
-      const filteredData = data.docs.map((doc) => ({
+      const q = await query(data.docs)
+      .where("userId", "!=", "UtGuMAEDsQbkAKqNstSQ4R9D5uw2");
+      const filteredData = q
+      .map((doc) => ({
         ...doc.data(),
         id: doc.id,
       }));
